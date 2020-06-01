@@ -38,10 +38,10 @@ def process_data():
 		df = stratified_sampling(df)
 
 	task_dict = {'PCA':apply_pca,
-				 'PCA_project':pca_project,
-				 'MDS_project_1':mds_1,
-				 'MDS_project_2':mds_2,
-				 'Scatterplot':scatter_matrix};
+		     'PCA_project':pca_project,
+		     'MDS_project_1':mds_1,
+		     'MDS_project_2':mds_2,
+		     'Scatterplot':scatter_matrix};
 
 	return jsonify(task_dict[task](df))
 
