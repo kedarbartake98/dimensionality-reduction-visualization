@@ -1,0 +1,117 @@
+<!-- Grid style CSS referred from https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles -->
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <title>Lab2- Kedar Bartake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        [class*='col-']{
+            float: left;
+            padding: 15px;
+        }
+        .col-1{width: 16.66%;}
+        .col-2{width: 80%; height: 80%;}
+        .col-3{width: 33.33%;}
+        html{
+            font-family: "Lucida Sans", sans-serif;
+        }
+        .header {
+          background-color: #9933cc;
+          color: #ffffff;
+          padding: 15px;
+        }
+        .bar {
+            fill: steelblue;
+        }
+        .line {
+          fill: none;
+          stroke: black;
+          stroke-width: 2px;
+        }
+        .axis,
+        .frame{
+            shape-rendering: :crispEdges;
+        }
+        .axis line{
+            stroke:#ddd;
+        }
+        .axis path {
+            display: :none;
+        }
+        .cell text{
+            font-weight: bold;
+            text-transform:capitalize;
+            fill:black;
+        }
+        .frame{
+            fill: none;
+            stroke: #aaa;
+        }
+        .extent{
+            fill: #000;
+            fill-opacity:.125;
+            stroke: #fff;
+        }
+        .circle{
+            fill-opacity:.7;
+        }
+        .circle.hidden{
+            fill:#ccc !important;
+        }
+    </style>
+</head>
+<body >
+
+    <!-- <script type="text/javascript" src="static/scripts/main.js"></script>> -->
+    <div class="header">
+        <h1 id='taskname'>Visualization Lab 2</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <label for='task'>Choose a Task: </label>
+
+            <select id="task">
+                <option value='None'></option>
+                <option value='PCA'>PCA Intrinsic Dimensionality with Scree Plot</option>
+                <option value='PCA_project'>PCA 2D Projection</option>
+                <option value="MDS_project_1">MDS 2D Projection (Euclidean Distance)</option>
+                <option value="MDS_project_2">MDS 2D Projection (Correlation Distance)</option>
+                <option value="Scatterplot">ScatterPlot Matrix</option>
+            </select>
+        </div>
+
+        <div class= "col-3">
+            <label for='dataset'>Choose a Dataset: </label>
+
+            <select id="data">
+                <option value='None'></option>
+                <option value='orig'>Original Data</option>
+                <option value='rand'>Randomly Sampled Data</option>
+                <option value='strat'>Stratified Sample Data</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="row">
+        <!-- <svg id="graph", width="600", height="600"> -->
+        <svg id="graph", width="1200", height="600">
+
+        </svg>
+
+        <p id='sig_attr'></p>
+    </div>
+    </div>
+</body>
+<script src="{{url_for('static', filename='scripts/main.js')}}"></script>
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+</html>
